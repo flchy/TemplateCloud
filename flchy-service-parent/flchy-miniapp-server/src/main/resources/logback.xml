@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 控制台 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder><!-- [%t] -->
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss}] %p [%t] [%c{0}-%L] - %m%n
+			</pattern>
+		</encoder>
+	</appender>
+	<!-- 日志文件 -->
+	<appender name="appLog"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${user.dir}/logs/app.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${user.dir}/logs/app.%d{yyyyMMdd}.log
+			</FileNamePattern>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>[%d{yyyy-MM-dd HH:mm:ss}] %p [%c{0}-%L] - %m%n</Pattern>
+		</layout>
+	</appender>
+
+	<!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework.beans.factory.aspectj" level="ERROR" />
+	<logger name="org.springframework.transaction.interceptor"
+		level="ERROR" />
+	<logger name="org.springframework.beans.factory.support" level="WARN" />
+	<logger name="org.springframework.web.servlet.view" level="WARN" />
+	<logger name="org.springframework.transaction" level="WARN" />
+	<logger
+		name="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		level="ERROR" />
+	<logger
+		name="org.springframework.transaction.support.AbstractPlatformTransactionManager"
+		level="ERROR" />
+	<logger name="org.springframework.security" level="WARN" />
+	<logger name="org.apache.commons" level="WARN" />
+	<logger name="org.apache.http" level="ERROR" />
+	<logger name="org.logicalcobwebs" level="WARN" />
+	<logger name="httpclient" level="ERROR" />
+	<logger name="net.sf.ehcache" level="WARN" />
+	<logger name="org.apache.zookeeper" level="WARN" />
+	<logger name="org.I0Itec" level="WARN" />
+	<logger name="org.mongodb.driver" level="INFO" />
+	<logger name="org.quartz.core" level="INFO" />
+	<logger name="io.netty" level="INFO" />
+	<!-- <logger name="com.rainsoft.data.gateway" level="DEBUG" /> -->
+	<logger name="org.springframework.data.elasticsearch" level="DEBUG" />
+	<logger name="springfox.documentation" level="ERROR" />
+	<logger name="com.ulisesbocchio.jasyptspringboot" level="INFO" />
+	
+	
+	<root level="DEBUG">
+		<appender-ref ref="console" />
+		<appender-ref ref="appLog" />
+	</root>
+</configuration>

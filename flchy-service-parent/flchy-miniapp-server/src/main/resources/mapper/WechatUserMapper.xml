@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flchy.cloud.miniapp.dao.WechatUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.flchy.cloud.miniapp.bean.WechatUser">
+        <id column="id" property="id" />
+        <result column="union_id" property="unionId" />
+        <result column="nick_name" property="nickName" />
+        <result column="sex" property="sex" />
+        <result column="city" property="city" />
+        <result column="province" property="province" />
+        <result column="country" property="country" />
+        <result column="language" property="language" />
+        <result column="head_img_url" property="headImgUrl" />
+    </resultMap>
+
+</mapper>

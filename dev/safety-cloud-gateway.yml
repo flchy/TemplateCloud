@@ -1,0 +1,33 @@
+server:
+  port: 9999
+# 聚合文档配置
+swagger:
+  document:
+    resources:
+      - name: 权限模块
+        location: /safety-auth
+spring:
+  cloud:
+    gateway:
+      x-forwarded:
+        prefixEnabled: false
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+#        - id: safety-service-auth
+#          uri: lb://safety-service-auth
+#          predicates:
+#            - Path=/safety-auth/**
+#          filters:
+#            - StripPrefix=1
+#            - name: Hystrix
+#              args:
+#                name: default
+#                fallbackUri: 'forward:/fallback'
+filters:
+  - name: Hystrix
+    args:
+      name: default
+      fallbackUri: 'forward:/fallback'

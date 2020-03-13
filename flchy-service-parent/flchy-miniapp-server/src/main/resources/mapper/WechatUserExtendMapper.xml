@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flchy.cloud.miniapp.dao.WechatUserExtendMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.flchy.cloud.miniapp.bean.WechatUserExtend">
+        <id column="id" property="id" />
+        <result column="wechat_user_id" property="wechatUserId" />
+        <result column="app_id" property="appId" />
+        <result column="type" property="type" />
+        <result column="open_id" property="openId" />
+        <result column="group_id" property="groupId" />
+        <result column="subscribe_time" property="subscribeTime" />
+        <result column="remark" property="remark" />
+        <result column="tagid_list" property="tagidList" />
+        <result column="subscribe_scene" property="subscribeScene" />
+        <result column="qr_scene" property="qrScene" />
+        <result column="qr_scene_str" property="qrSceneStr" />
+        <result column="status" property="status" />
+    </resultMap>
+    
+    
+    <select id="queryWechatUserExtendByAppIdAndUnionId" resultType="com.flchy.cloud.miniapp.bean.WechatUserExtend">
+        select ue.* from wechat_user_extend ue left join wechat_user u on u.id=ue.wechat_user_id where ue.app_id=#{appId} and u.union_id in
+        <foreach collection="unionIds" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+</mapper>

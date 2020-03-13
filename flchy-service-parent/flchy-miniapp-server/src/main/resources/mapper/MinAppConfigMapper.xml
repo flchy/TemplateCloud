@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flchy.cloud.miniapp.dao.MinAppConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.flchy.cloud.miniapp.bean.MinAppConfig">
+        <id column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="secret" property="secret" />
+        <result column="aes_key" property="aesKey" />
+        <result column="token" property="token" />
+        <result column="msg_data_format" property="msgDataFormat" />
+        <result column="name" property="name" />
+        <result column="remark" property="remark" />
+        <result column="common_status" property="commonStatus" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+</mapper>

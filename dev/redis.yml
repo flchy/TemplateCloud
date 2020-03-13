@@ -1,0 +1,12 @@
+# redis 通用配置， 不同的环境，需要配置不同的链接信息，只需要将这段信息复制到具体环境的配置文件中进行修改即可
+spring:
+  redis:
+    host: localhost
+    password: root
+    port: 7379
+    database: 0
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: 1

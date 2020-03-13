@@ -1,0 +1,27 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: @project.artifactId@
+  profiles:
+    active: @pom.profile.name@
+  cloud:
+    nacos:
+      config:
+        server-addr: @pom.nacos.ip@:@pom.nacos.port@
+        file-extension: yml
+        namespace: @pom.nacos.namespace@
+        shared-dataids: common.yml
+        refreshable-dataids: common.yml
+        enabled: true
+      discovery:
+        server-addr: @pom.nacos.ip@:@pom.nacos.port@
+        namespace: @pom.nacos.namespace@
+
+
+info:
+  name: "@project.name@"
+  description: "@project.description@"
+  version: "@project.version@"
+  spring-boot-version: "@spring-boot.version@"
+  spring-cloud-version: "@spring.cloud.version@"
