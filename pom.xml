@@ -46,7 +46,7 @@
         <docker.plugin.version>1.2.0</docker.plugin.version>
         <spring.boot.admin.version>2.2.0</spring.boot.admin.version>
         <hutool.version>5.1.1</hutool.version>
-        <fastjson.version>1.2.62</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     </properties>
